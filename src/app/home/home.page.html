@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Inicio</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons (click)="presentActionSheet()" slot="end">
       <ion-title>{{ userName }}</ion-title>
-      <ion-avatar (click)="presentActionSheet()">
+      <ion-avatar>
         <img [src]="userPhotoURL || 'assets/default-profile-pic.jpg'" />
       </ion-avatar>
     </ion-buttons>
@@ -11,34 +11,52 @@
 </ion-header>
 
 <ion-content>
-  <div class="button-container">
-    <ion-button (click)="openNoteModal()">Agregar Nota</ion-button>
-  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
+  <br><br>
   <!-- Display Existing Notes -->
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="4" *ngFor="let note of notes">
-        <ion-card >
+        <ion-card>
           <div class="note-border" [style.background-color]="note.color"></div>
           <ion-card-header>
             <ion-card-title>{{ note.title }}</ion-card-title>
             <ion-card-subtitle>{{ note.timestamp | date:'short' }}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <p>{{ note.content }}</p>
-            <br>
-            <ion-button (click)="editNote(note)">
-              <ion-icon name="create-outline"></ion-icon>
-            </ion-button>
-            
-            <ion-button color="danger" (click)="deleteNote(note.id)">
-              <ion-icon name="trash-outline"></ion-icon>
-            </ion-button>
-            
+            <div class="note-content">
+              <p>{{ note.content }}</p>
+            </div>
           </ion-card-content>
+          <ion-item-sliding class="note-options">
+            <ion-item class="color">
+              <ion-label>
+                Desliza para ver las opciones
+              </ion-label>
+              <ion-icon slot="end" color="dark" name="play"></ion-icon>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option (click)="editNote(note)">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+              </ion-item-option>
+              <ion-item-option class="eliminar" (click)="deleteNote(note.id)">
+                <ion-icon slot="icon-only" class="delete" name="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
         </ion-card>
+        
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openNoteModal()">
+      <ion-icon name="add" style="color: white;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

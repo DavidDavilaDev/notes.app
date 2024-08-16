@@ -17,7 +17,6 @@
   }
   
   ion-button {
-    --background: #3880ff; /* Color azul para el botón */
     --border-radius: 8px;
   }
   
@@ -25,3 +24,14 @@
     padding-top: 20px;
   }
   
+  .loading-alert {
+    ion-progress-bar {
+      margin-bottom: 10px;
+    }
+  }
+
+  .eliminar {
+    --color: #fff;
+    --background: rgb(255, 68, 68);
+    color: #fff;
+  }

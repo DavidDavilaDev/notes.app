@@ -189,4 +189,18 @@ export class HomePage implements OnInit, OnDestroy {
   
     await alert.present();
   }
+
+  doRefresh(event: any) {
+    this.afAuth.currentUser.then(user => {
+      if (user) {
+        this.setupNotesListener(user.uid);
+      }
+    }).finally(() => {
+      event.target.complete(); // Finaliza el refresco
+    });
+  }
+  setupNotesListener(uid: string) {
+    throw new Error('Method not implemented.');
+  }
+  
 }

@@ -16,12 +16,18 @@
   
   <ion-item>
     <ion-label>Foto de Perfil</ion-label>
-    <input type="file" (change)="handleFileInput($event)">
-    <ion-img [src]="photoURL" *ngIf="photoURL" style="width: 100px; height: 100px; object-fit: cover;"></ion-img>
+  </ion-item>
+  
+  <ion-item>
+    <input type="file" (change)="handleFileInput($event)" style="width: 100%;">
+  </ion-item>
+  
+  <ion-item *ngIf="photoURL">
+    <ion-img [src]="photoURL" style="width: 100px; height: 100px; object-fit: cover;"></ion-img>
   </ion-item>
 
-  <ion-button style="width: 100%;" color="primary" (click)="takePhoto()">Tomar foto</ion-button>
+  <ion-button style="width: 100%;" color="light" (click)="takePhoto()">Tomar foto</ion-button>
 
-  <ion-button style="width: 100%; border-radius: 5px;" color="secondary" (click)="updateProfile()">Actualizar</ion-button>
-  <ion-button style="width: 100%; border-radius: 5px;" color="danger" (click)="goToHome()">Cancelar</ion-button>
+  <ion-button style="width: 100%; border-radius: 5px;" color="dark" (click)="updateProfile()">Actualizar</ion-button>
+  <ion-button style="width: 100%; border-radius: 5px;" class="eliminar"  (click)="goToHome()">Cancelar</ion-button>
 </ion-content>

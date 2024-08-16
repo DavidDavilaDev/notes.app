@@ -37,7 +37,49 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 
 
-$color-red: #f96363;
-$color-yellow: #edd968;
-$color-green: #6ae96a;
-$color-blue: #4ba3fc;
+/* Estilo para el encabezado */
+ion-header {
+    --background: #f8f9fa; /* Fondo del encabezado */
+    --color: #333; /* Color del texto del encabezado */
+  }
+  
+  ion-title {
+    font-size: 1.2rem; /* Tamaño de fuente del título */
+    font-weight: bold; /* Negrita en el título */
+  }
+  
+  /* Estilo para los items */
+  ion-item {
+    margin-bottom: 16px; /* Espacio entre los items */
+  }
+  
+  ion-label {
+    font-size: 1rem; /* Tamaño de fuente de las etiquetas */
+  }
+  
+  ion-input, ion-textarea {
+    --padding-start: 0; /* Sin relleno inicial */
+    --padding-end: 0; /* Sin relleno final */
+  }
+  
+  /* Estilo para el input de color */
+  ion-input[type="color"] {
+    --padding-start: 0; /* Sin relleno inicial */
+  }
+  
+  /* Contenedor de botones */
+  .button-container {
+    margin-top: 20px; /* Espacio arriba del contenedor */
+  }
+  
+  /* Estilo para el botón */
+  ion-button {
+    border-radius: 12px; /* Bordes redondeados en los botones */
+    --background: #007bff; /* Color de fondo del botón */
+    --color: #fff; /* Color del texto en el botón */
+  }
+  
+  ion-button[expand="full"] {
+    margin-top: 10px; /* Espacio arriba del botón */
+  }
+  

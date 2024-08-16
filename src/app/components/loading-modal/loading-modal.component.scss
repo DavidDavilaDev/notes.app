@@ -1,0 +1,26 @@
+.modal-content {
+    --padding: 0; // Elimina el padding del ion-content
+    height: 20px;
+  
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-width: 300px; // Ajusta el ancho máximo del modal
+      max-height: 200px; // Ajusta la altura máxima del modal
+      margin: auto; // Centra el modal en la pantalla
+      text-align: center; // Centra el texto
+    }
+  
+    ion-progress-bar {
+      width: 80%; // Ajusta el ancho del progress bar si es necesario
+      margin-bottom: 10px; // Espacio debajo del progress bar
+    }
+  
+    div {
+      margin-top: 10px; // Espacio superior para el texto
+    }
+  }
+  
